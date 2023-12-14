@@ -1,0 +1,31 @@
+﻿@model IEnumerable<IntelliTrackSolutionsWeb.EFModels.InformationSystem>?
+
+@{
+    Layout = "Layout/_LayoutUserAuth";
+    ViewData["Title"] = "Мониторинг";
+    ViewData["Active_Monitor_Link"] = "active";
+}
+
+<div class="d-sm-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0" style="color: firebrick !important">Мониторинг игровых ресурсов</h2>
+</div>
+@if (Model != null)
+{
+    if (Model.Count() > 1)
+    {
+        @foreach (var informationSystem in Model.ToList())
+        {
+            @await Html.PartialAsync("InfoDataComponent", informationSystem)
+        }
+    }
+    else
+    {
+        var informationSystem = Model.ToList()[0];
+        @await Html.PartialAsync("InfoDataComponent", informationSystem)
+    }
+}
+else
+{
+    <h3 class="text-color-game-m">Извините, но на данный момент данный аккаунт не проверен!</h3>
+    <p class="text-color-game-m">Ожидайте подтверждения от административного центра и сможете воспользоваться всеми преимуществами.</p>
+}

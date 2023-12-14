@@ -1,0 +1,40 @@
+@model IntelliTrackSolutionsWeb.EFModels.AccessLevel
+
+@{
+    ViewData["Title"] = "Удаление уровня доступа";
+    Layout = "Layout/_LayoutUserAuth";
+    ViewData["Active_AccessLevelTableData_Link"] = "active";
+}
+
+<div style="padding: 2%">
+    <h1>@ViewData["Title"]</h1>
+
+    <div>
+        <h4>Уровень доступа</h4>
+        <hr/>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Permission)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Permission)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.InformationSystem)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.InformationSystem.IdInformationSystem)
+            </dd>
+        </dl>
+
+        <form asp-action="DeleteConfirmed">
+            <input type="hidden" asp-for="IdAccessLevel"/>
+            <input type="submit" value="Удалить" class="btn btn-danger"/>
+        </form>
+    </div>
+</div>
+<style>
+    h4,h1,label{
+        color: firebrick !important;
+    }
+</style>

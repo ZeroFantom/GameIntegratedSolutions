@@ -1,0 +1,64 @@
+@model IntelliTrackSolutionsWeb.EFModels.SystemObject
+
+@{
+    ViewData["Title"] = "Удаление игрового объекта";
+    Layout = "Layout/_LayoutUserAuth";
+    ViewData["Active_SystemObjectTableData_Link"] = "active";
+}
+<div style="padding: 2%">
+    <h1>@ViewData["Title"]</h1>
+
+    <h3>Вы точно хотите удалить игровой объект?</h3>
+    <div>
+        <h4>Игровой объект</h4>
+        <hr/>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Condition)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Condition)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DataRegistration)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DataRegistration)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.LastUpdate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.LastUpdate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.InformationSystem)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.InformationSystem.IdInformationSystem)
+            </dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="IdSystemObject"/>
+            <input type="submit" value="Удалить" class="btn btn-danger"/>
+        </form>
+    </div>
+</div>
+<style>
+    h4,h1,label{
+        color: firebrick !important;
+    }
+</style>

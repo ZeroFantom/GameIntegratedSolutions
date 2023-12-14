@@ -1,0 +1,47 @@
+@model IntelliTrackSolutionsWeb.EFModels.Role
+
+@{
+    ViewData["Title"] = "Удаление роли";
+    Layout = "Layout/_LayoutUserAuth";
+    ViewData["Active_RoleTableData_Link"] = "active";
+}
+
+<div style="padding: 2%">
+    <h1>@ViewData["Title"]</h1>
+
+    <div>
+        <h4>Роль</h4>
+        <hr/>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.AccessLevel)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.AccessLevel.IdAccessLevel)
+            </dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="IdRole"/>
+            <input type="hidden" asp-for="AccessLevelId"/>
+            <input type="submit" value="Удалить" class="btn btn-danger"/> |
+        </form>
+    </div>
+</div>
+<style>
+    h4,h1,label{
+        color: firebrick !important;
+    }
+</style>

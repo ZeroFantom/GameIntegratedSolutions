@@ -1,0 +1,199 @@
+﻿html {
+    min-height: 100vh;
+    height: 100%;
+    background: linear-gradient(to right bottom, #2c3e50, #bdc3c7, #2c3e50);
+}
+
+.text-color-game-m {
+    color: firebrick !important;
+    font-size: larger;
+}
+
+.modal-game {
+    z-index: 1;
+}
+
+.main-game {
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027);
+    box-shadow: 0 0 1rem black;
+    margin: 6rem 12rem;
+    border-radius: 2rem;
+    flex: 1;
+}
+
+.container-game-heading {
+    margin: 2rem;
+}
+
+.privacy-body-game {
+    margin-left: 5rem;
+    margin-right: 5rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem black;
+}
+
+.container-game-paragraph {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 5rem;
+}
+
+.header-game {
+    position: fixed;
+    width: -webkit-fill-available;
+}
+
+.nav-game-monitoring {
+    background: firebrick;
+    box-shadow: 0 0 1rem black;
+}
+
+.main-game-monitoring {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.body-game-m {
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    background: currentColor;
+    display: flex;
+}
+
+.body-game-m::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+.body-game-m::-webkit-scrollbar {
+    width: 0;
+}
+
+.container-f-m {
+    flex: 1
+}
+
+.footer-game-m {
+    box-shadow: 0 0 1rem white;
+}
+
+.body-game {
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    background: linear-gradient(to right bottom, #2c3e50, #bdc3c7, #2c3e50);
+    width: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+}
+
+.body-game::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+.body-game::-webkit-scrollbar {
+    width: 0;
+}
+
+.ul-game {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: flex-end;
+}
+
+.li-game {
+    border-radius: 1rem;
+    border-color: currentColor;
+    border-style: double;
+    box-shadow: 0 0 1rem black;
+    padding-right: 0.2rem !important;
+    margin: 0.3rem;
+}
+
+.a-game {
+    color: honeydew;
+    font-weight: 500;
+}
+
+.about-me-game {
+    color: darkorange;
+    text-shadow: 0 0 0.4rem black;
+}
+
+.footer-game {
+    background-size: cover;
+    height: 5rem;
+    background: linear-gradient(to left, #1a2a6c 5%, #b21f1f 50%, #fdbb2d 95%);
+    box-shadow: 1rem 2rem 6rem black;
+    width: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.card-game {
+    background: linear-gradient(to top, #757f9a 10rem, #d7dde8 24rem);
+    box-shadow: 0 0 1rem black;
+}
+
+.card-game-text {
+    color: black !important;
+    font-weight: 500;
+}
+
+.h2-game {
+    color: darkorange;
+    text-shadow: 0 0 1rem black;
+    font-family: serif;
+    font-size: xxx-large;
+}
+
+.nav-game {
+    background: linear-gradient(to right, #1a2a6c 10%, #b21f1f 50%, #fdbb2d 100%);
+    box-shadow: 1rem 2rem 6rem black;
+}
+
+@media (max-width: 990px) {
+    .ul-game {
+        flex-direction: column;
+    }
+
+    .li-game {
+        width: -webkit-fill-available;
+        display: flex;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.img-logo {
+    width: 3rem;
+    height: 3rem;
+    box-shadow: 0 0 1rem 0.1rem black;
+    border-radius: 1rem;
+}
+
+.nav-logo {
+    display: flex;
+    box-shadow: 0 0 1rem black;
+    border-radius: 1rem 2rem 0rem 1rem;
+    width: 15rem;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: center;
+    color: darkorange;
+}

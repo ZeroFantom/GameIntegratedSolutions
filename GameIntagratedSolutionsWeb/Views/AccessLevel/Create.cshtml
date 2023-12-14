@@ -1,0 +1,46 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using IntelliTrackSolutionsWeb.EFModels
+@model AccessLevel
+
+@{
+    ViewData["Title"] = "Создание уровня доступа";
+    Layout = "Layout/_LayoutUserAuth";
+    ViewData["Active_AccessLevelTableData_Link"] = "active";
+}
+<div style="padding: 2%">
+    <h1>@ViewData["Title"]</h1>
+
+    <h4>Уровень доступа</h4>
+    <hr/>
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Permission" class="control-label"></label>
+                    <input asp-for="Permission" class="form-control"/>
+                    <span asp-validation-for="Permission" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="InformationSystemId" class="control-label"></label>
+                    <select asp-for="InformationSystemId" class="form-control">
+                        @for (var num = 1; num <= ViewBag.InformationSystems.Count; num++)
+                        {
+                            var item = (InformationSystem)ViewBag.InformationSystems[num - 1];
+                            <option value="@item.IdInformationSystem">@item.Title</option>
+                        }
+                    </select>
+                </div>
+                <br/>
+                <div class="form-group">
+                    <input type="submit" value="Создать" class="btn btn-primary"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<style>
+    h4,h1,label{
+        color: firebrick !important;
+    }
+</style>

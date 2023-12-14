@@ -1,0 +1,28 @@
+﻿services:
+  
+  database:
+    image: mysql:latest
+    ports:
+    - 33060:3306
+      environment:
+        MYSQL_ROOT_PASSWORD: Zero2004
+  volumes:
+    - mysql:/var/lib/mysql
+    - ./_MySQL_Init_Script:/docker-entrypoint-initdb.d
+  restart: always
+  
+  gameintagratedsolutionsweb:
+    image: gameintagratedsolutionsweb
+    build:
+      context: .
+        dockerfile: GameIntagratedSolutionsWeb/Dockerfile
+  ports:
+    - "8080:8080"
+    depends_on:
+      - database
+    environment:
+      - "ConnectionString=server=database;port=3306;uid=root;pwd=Zero2004;database=IntelliTrackSolutionsDB;"
+    restart: always
+
+volumes:
+  mysql:

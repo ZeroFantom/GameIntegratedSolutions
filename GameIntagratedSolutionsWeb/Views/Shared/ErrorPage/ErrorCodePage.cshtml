@@ -1,0 +1,35 @@
+﻿@model string
+
+@{
+    ViewData["Title"] = "Ошибка";
+}
+
+<div class="text-center mt-5">
+    <div class="error mx-auto" data-text="@Model">
+        <p class="m-0">@Model</p>
+    </div>
+    <p class="mb-5 lead" style="color: darkorange">Вам явно не сюда, ведь здесь ничего нет.(</p>
+    <p class="mb-0" style="color: darkorange">Если вам кажется, что цифры мерцают, вы слишком долго пробыли на данном сайте, пожалуйста отдохните!</p>
+    <a href="/">← Вернуться</a>
+</div>
+
+<style>
+    .body-game{
+       height: 100% !important;
+    }    
+    .main-game{
+       margin-left: 20rem !important;
+       margin-right: 20rem !important;
+       margin-bottom: 30rem !important;
+    }
+    
+    .error:after{
+            color: #e9ecef !important;
+            background: #00000052 !important;
+    }
+    
+    .error:before{
+        color: #5a5c69 !important;
+        background: #00000047 !important;
+    }
+</style>

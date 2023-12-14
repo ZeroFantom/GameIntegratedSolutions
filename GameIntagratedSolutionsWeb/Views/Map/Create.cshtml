@@ -1,0 +1,52 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using IntelliTrackSolutionsWeb.EFModels
+@model Location
+
+@{
+    ViewData["Title"] = "Создание локации";
+    Layout = "Layout/_LayoutUserAuth";
+    ViewData["Active_LocationTableData_Link"] = "active";
+}
+
+<div style="padding: 2%">
+    <h1>@ViewData["Title"]</h1>
+
+    <h4>Локация</h4>
+    <hr/>
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="SystemObjectId" class="control-label"></label>
+                    <select asp-for="SystemObjectId" class="form-control">
+                        @for (var num = 1; num <= ViewBag.SystemObjects.Count; num++)
+                        {
+                            var item = (SystemObject)ViewBag.SystemObjects[num - 1];
+                            <option value="@item.IdSystemObject">@item.InformationSystem!.Title: @item.Name</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Latitude" class="control-label"></label>
+                    <input asp-for="Latitude" class="form-control"/>
+                    <span asp-validation-for="Latitude" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Longitude" class="control-label"></label>
+                    <input asp-for="Longitude" class="form-control"/>
+                    <span asp-validation-for="Longitude" class="text-danger"></span>
+                </div>
+                <br/>
+                <div class="form-group">
+                    <input type="submit" value="Создать" class="btn btn-primary"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<style>
+    h4,h1,label{
+        color: firebrick !important;
+    }
+</style>

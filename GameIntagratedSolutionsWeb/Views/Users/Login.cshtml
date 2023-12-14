@@ -1,0 +1,77 @@
+﻿@model IntelliTrackSolutionsWeb.EFModels.User
+@{
+    ViewData["Title"] = "Авторизация";
+}
+
+<div class="row">
+    <div class="col-lg-5 d-none d-lg-flex">
+        <div class="flex-grow-1 bg-login-image img-game-div" style="background: url(/img/game/five5.jpeg) center / 80rem;"></div>
+    </div>
+    <div class="col-lg-6" style="flex: auto;">
+        <div class="p-5">
+            <div class="text-center">
+                <h4 class="mb-4" style="color:darkorange">С возвращением!</h4>
+            </div>
+            <form class="user" asp-action="Login">
+                <div class="mb-3">
+                    <input asp-for="Login" class="form-control form-control-user" type="text" placeholder="Введите логин..." name="login"/>
+                    <br/>
+                    <span asp-validation-for="Login" class="text-danger">
+                    </span>
+                </div>
+                <div class="mb-3">
+                    <input asp-for="Password" class="form-control form-control-user" type="password" placeholder="Введите пароль..." name="password">
+                    <br/>
+                    <span asp-validation-for="Password" class="text-danger">
+                    </span>
+                </div>
+                @{
+                    if (ViewData["CodeIsEnable"] != null && (bool)ViewData["CodeIsEnable"]!)
+                    {
+                        <div class="mb-3">
+                            <input class="form-control form-control-user" type="password" placeholder="Введите код двухфакторной авторизации..." name="code">
+                        </div>
+                    }
+                }
+                <div class="mb-3">
+                    <div class="custom-control custom-checkbox small"></div>
+                </div>
+
+                <button class="btn btn-outline-primary d-block btn-user w-100" type="submit" value="Login">Авторизоваться</button>
+            </form>
+            <br/>
+            @{
+                if (ViewData["Error"] != null)
+                {
+                    <div align="center">
+                        <span class="text-danger">@ViewData["Error"]</span>
+                    </div>
+                }
+            }
+            <br/>
+            <div class="text-center">
+                <a class="small" asp-controller="Users" asp-action="Create">Если у вас нет аккаунт, создайте его здесь!</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .body-game{
+        height: 100% !important;
+    }    
+    
+    .main-game{
+        display: grid;
+    }
+    
+    .img-game-div {
+        border-radius: 1rem 0 0 1rem;
+    }
+</style>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+}

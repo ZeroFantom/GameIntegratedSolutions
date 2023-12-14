@@ -1,0 +1,65 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using TaskStatus = IntelliTrackSolutionsWeb.EFModels_Partial.Converter.TaskStatus
+@using IntelliTrackSolutionsWeb.EFModels_Partial.Converter
+@model IntelliTrackSolutionsWeb.EFModels.Task
+
+@{
+    ViewData["Title"] = "Редактирование задачи";
+    Layout = "Layout/_LayoutUserAuth";
+    ViewData["Active_TaskTableData_Link"] = "active";
+}
+<div style="padding: 2%">
+    <h1>@ViewData["Title"]</h1>
+
+    <h4>Задача</h4>
+    <hr/>
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="IdTask"/>
+                <input type="hidden" asp-for="InformationSystemId"/>
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label"></label>
+                    <input asp-for="Title" class="form-control"/>
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Goal" class="control-label"></label>
+                    <input asp-for="Goal" class="form-control"/>
+                    <span asp-validation-for="Goal" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DataRegistration" class="control-label"></label>
+                    <input asp-for="DataRegistration" class="form-control"/>
+                    <span asp-validation-for="DataRegistration" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastUpdate" class="control-label"></label>
+                    <input asp-for="LastUpdate" class="form-control"/>
+                    <span asp-validation-for="LastUpdate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Status" class="control-label"></label>
+                    <select asp-for="Status" class="form-control" asp-items="EnumHelper.GetSelectList<TaskStatus>()"></select>
+                    <span asp-validation-for="Status" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Deadline" class="control-label"></label>
+                    <input asp-for="Deadline" class="form-control"/>
+                    <span asp-validation-for="Deadline" class="text-danger"></span>
+                </div>
+                <br/>
+                <div class="form-group">
+                    <input type="submit" value="Сохранить" class="btn btn-primary"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    h4,h1,label{
+        color: firebrick !important;
+    }
+</style>

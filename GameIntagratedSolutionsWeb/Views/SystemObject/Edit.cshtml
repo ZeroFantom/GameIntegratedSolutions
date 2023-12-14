@@ -1,0 +1,70 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using TaskStatus = TaskStatus
+@using IntelliTrackSolutionsWeb.EFModels_Partial.Converter
+@using IntelliTrackSolutionsWeb.EFModels
+@model SystemObject
+
+@{
+    ViewData["Title"] = "Редактирование игрового объекта";
+    Layout = "Layout/_LayoutUserAuth";
+    ViewData["Active_SystemObjectTableData_Link"] = "active";
+}
+<div style="padding: 2%">
+    <h1>@ViewData["Title"]</h1>
+
+    <h4>Игровой объекта</h4>
+    <hr/>
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="IdSystemObject"/>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control"/>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control"/>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Condition" class="control-label"></label>
+                    <select asp-for="Condition" class="form-control" asp-items="EnumHelper.GetSelectList<ObjectCondition>()"></select>
+                    <span asp-validation-for="Condition" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DataRegistration" class="control-label"></label>
+                    <input asp-for="DataRegistration" class="form-control"/>
+                    <span asp-validation-for="DataRegistration" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastUpdate" class="control-label"></label>
+                    <input asp-for="LastUpdate" class="form-control"/>
+                    <span asp-validation-for="LastUpdate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="InformationSystemId" class="control-label"></label>
+                    <select asp-for="InformationSystemId" class="form-control">
+                        @for (var num = 1; num <= ViewBag.InformationSystems.Count; num++)
+                        {
+                            var item = (InformationSystem)ViewBag.InformationSystems[num - 1];
+                            <option value="@item.IdInformationSystem">@item.Title</option>
+                        }
+                    </select>
+                    <span asp-validation-for="InformationSystemId" class="text-danger"></span>
+                </div>
+                <br/>
+                <div class="form-group">
+                    <input type="submit" value="Сохранить" class="btn btn-primary"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<style>
+    h4,h1,label{
+        color: firebrick !important;
+    }
+</style>
