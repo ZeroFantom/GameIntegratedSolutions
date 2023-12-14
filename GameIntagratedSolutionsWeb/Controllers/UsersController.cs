@@ -410,7 +410,7 @@ public class UsersController : AbstractController<RealApiDeviceHub, ServiceSyste
     [HttpPost]
     public IActionResult SavePrivacy()
     {
-        return File(@"~/file/Privacy.docx", "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        return File("file/Privacy.docx", "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
             "Privacy.docx");
     }
 

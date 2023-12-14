@@ -68,9 +68,9 @@
 
     <ItemGroup>
       <Content Remove="wwwroot\File\Privacy.docx" />
-      <Content Include="wwwroot\file\Privacy.docx">
+      <Resource Include="wwwroot\file\Privacy.docx">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Content>
+      </Resource>
     </ItemGroup>
 
 </Project>
