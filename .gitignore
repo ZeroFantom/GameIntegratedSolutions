@@ -1,0 +1,6 @@
+﻿.idea/
+.git/
+/GameIntagratedSolutionsWeb/bin
+/GameIntagratedSolutionsWeb/obj
+/GameIntagratedSolutionsWebTest/bin
+/GameIntagratedSolutionsWebTest/obj
