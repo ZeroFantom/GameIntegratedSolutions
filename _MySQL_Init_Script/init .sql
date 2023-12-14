@@ -21,7 +21,7 @@ USE `IntelliTrackSolutionsDB` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `IntelliTrackSolutionsDB`.`InformationSystem` (
   `idInformationSystem` INT NOT NULL AUTO_INCREMENT,
-  `Title` NVARCHAR(50) NOT NULL COMMENT 'Название информационной системы.',
+  `Title` NVARCHAR(200) NOT NULL COMMENT 'Название информационной системы.',
   `Description` NVARCHAR(500) NOT NULL COMMENT 'Описание информационной системы.',
   `ApiKey` TEXT NOT NULL COMMENT 'Ключ апи для работы с данной информационной системой.',
   PRIMARY KEY (`idInformationSystem`))
@@ -94,7 +94,7 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `IntelliTrackSolutionsDB`.`Role` (
   `idRole` INT NOT NULL AUTO_INCREMENT,
   `AccessLevelId` INT NOT NULL COMMENT 'Привязанный к роли лист доступа.',
-  `Title` NVARCHAR(50) NOT NULL COMMENT 'Название роли.',
+  `Title` NVARCHAR(100) NOT NULL COMMENT 'Название роли.',
   `Description` NVARCHAR(400) NOT NULL COMMENT 'Описание роли.',
   PRIMARY KEY (`idRole`, `AccessLevelId`),
   INDEX `fk_Role_AccessLevel_idx` (`AccessLevelId` ASC) VISIBLE,
@@ -137,7 +137,7 @@ SHOW WARNINGS;
 CREATE TABLE IF NOT EXISTS `IntelliTrackSolutionsDB`.`Task` (
   `idTask` INT NOT NULL AUTO_INCREMENT,
   `InformationSystemId` INT NOT NULL COMMENT 'Идентификатор информационной системы к которой принадлежит задача.',
-  `Title` NVARCHAR(50) NOT NULL COMMENT 'Название задачи.',
+  `Title` NVARCHAR(100) NOT NULL COMMENT 'Название задачи.',
   `Goal` NVARCHAR(400) NOT NULL COMMENT 'Цель задачи.',
   `DataRegistration` DATETIME NOT NULL DEFAULT NOW() COMMENT 'Дата регистрации задачи.',
   `LastUpdate` DATETIME NOT NULL DEFAULT NOW() COMMENT 'Последнее обновление задачи.',
@@ -201,7 +201,7 @@ SHOW WARNINGS;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `IntelliTrackSolutionsDB`.`Chat` (
   `idChat` INT NOT NULL AUTO_INCREMENT,
-  `Title` NVARCHAR(50) NOT NULL DEFAULT 'Название чата...' COMMENT 'Название чата.',
+  `Title` NVARCHAR(100) NOT NULL DEFAULT 'Название чата...' COMMENT 'Название чата.',
   `InformationSystemId` INT NOT NULL COMMENT 'Идентификатор информационной системы, к которой принадлежит чат.',
   PRIMARY KEY (`idChat`),
   INDEX `fk_Chat_InformationSystem_idx` (`InformationSystemId` ASC) VISIBLE,
