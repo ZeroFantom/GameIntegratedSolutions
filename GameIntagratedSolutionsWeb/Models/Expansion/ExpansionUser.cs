@@ -1,4 +1,5 @@
-﻿using Clave.Expressionify;
+﻿using BCrypt.Net;
+using Clave.Expressionify;
 using IntelliTrackSolutionsWeb.EFModels;
 using BCrypted = BCrypt.Net.BCrypt;
 
@@ -15,6 +16,6 @@ public static partial class ExpansionUser
 
     [Expressionify]
     public static bool IsValidPassword(this User user, ServiceSystemContext context, string password)
-        => BCrypted.Verify(password, context.DecryptPassword(user.Password));
+        => BCrypted.Verify(password, context.DecryptPassword(user.Password), false, HashType.SHA384);
     
 }
