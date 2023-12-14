@@ -71,21 +71,21 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
+    app.UseHttpsRedirection();
+}
+else
+{
     app.UseCors(x => x
         .AllowAnyMethod()
         .AllowAnyHeader()
         .SetIsOriginAllowed(_ => true)
         .AllowCredentials());
-}
-else
-{
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
 
 app.UseStatusCodePagesWithRedirects("/Home/ErrorCodePage?errorCode={0}");
 
-app.UseHttpsRedirection();
 app.UseSession();
 
 app.UseDefaultFiles();
